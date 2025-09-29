@@ -4,14 +4,101 @@
 // Este código inicial serve como base para o desenvolvimento do sistema de Batalha Naval.
 // Siga os comentários para implementar cada parte do desafio.
 
+// DEFINIÇÃO DO TABULEIRO
+
+void tabuleiro (int matriz[10][10], int valor) {
+   for (int i = 0; i < valor; i++) {
+      for (int j = 0; j < valor; j++) {
+         printf("%2d",matriz[i][j]);
+      }
+      printf("\n");
+   }
+}
+
+// VISUALIZAÇÃO DO TABULEIRO INICIANDO - SE DO 0
+void tabuleirogeral (int jogo [10][10]) {
+   for (int i = 0; i < 10; i++) {
+      for (int j = 0; j < 10; j++) {
+         jogo[i][j] = 0;
+      }
+   }
+   // POSICIONAMENTO DAS PEÇAS NA HORIZONTAL
+   for (int j = 2; j < 6; j++) {
+      jogo[0][j] = 3;
+   }
+   // POSICIONAMENTO DAS PEÇAS NA VERTICAL
+   for (int i = 2; i < 6; i++) {
+      jogo [i][0] = 3;
+   }
+   // POSICIONAMENTO DAS PEÇAS NA DIAGONAL PRINCIPAL
+   for (int i = 0; i < 4; i++) {
+      jogo[i][i] = 3;
+   }
+   // POSICIONAMENTO DAS PEÇAS NA DIAGONAL SECUNDÁRIA
+   for (int i = 0; i < 4; i++) {
+      jogo[i][9 - i] = 3;
+   }
+
+}
+
+
 int main() {
 
-    int tabuleiro [10][10];
+   // INICIALIZAÇÃO COM ESTRUTURA DO WHILE
 
-   for (int linha = 0; linha < 10; linha++) {
-      for (int coluna = 0; coluna < 10; coluna++) {
+   int opcao;
 
-         tabuleiro[linha][coluna]= 0;
+   do {
+
+      // INICIALIZAÇÃO DO JOGO
+      printf("#### JOGO BATALHA NAVAL ####\n");
+      printf("############################\n");
+      printf("1. Visualizar a tabela.\n");
+      printf("2. Sair do Jogo.\n");
+      printf("############################\n");
+      printf("Selecione a opcao desejada: \n");
+      scanf("%d", &opcao);
+
+
+      switch (opcao) {
+
+         case 1:
+            printf("OPCAO SELECIONADA: VISUALIZAR O TABULEIRO!\n");
+
+            int jogo[10][10];
+
+            // CARREGAMENTO DA LÓGICA
+            tabuleirogeral(jogo);
+
+            // CARREGAMENTO DA TABULAÇÃO
+            tabuleiro(jogo,10);
+            break;
+         case 2:
+            printf("OPCAO SELECIONADA: SAIR DO JOGO!\n");
+
+            printf("Voce saiu do jogo!\n");
+            break;
+            default:
+            printf("Selecione a opcao valida!\n");
+      }
+
+   }while (opcao != 2);
+
+
+return 0;
+
+}
+
+/* // DEFINIÇÃO DO TABULEIRO
+
+   int tabuleiro [LINHA][COLUNA];
+
+   for (int i = 0; i < LINHA; i++) {
+      for (int j = 0; j < COLUNA; j++) {
+
+         tabuleiro[i][j] = 0;
+
+         // Definição da posição das peças na vertical e horizontal
          tabuleiro[1][5] = 3;
          tabuleiro[1][6] = 3;
          tabuleiro[1][7] = 3;
@@ -21,18 +108,20 @@ int main() {
       }
    }
 
+
+
+   // Mostrar  na tela o tabuleiro com as informações das posições
+
    printf("### JOGO BATALHA NAVAL ###\n");
 
-   for (int linha = 0; linha < 10; linha++) {
-      for (int coluna = 0; coluna < 10; coluna++) {
+   for (int i = 0; i < LINHA; i++) {
+      for (int j = 0; j < COLUNA; j++) {
 
-         printf("%2d ", tabuleiro[linha][coluna]);
+         printf("%4d", tabuleiro[i][j]);
       }
       printf("\n");
    }
-
-     return 0;
-}
+*/
     // Nível Novato - Posicionamento dos Navios
     // Sugestão: Declare uma matriz bidimensional para representar o tabuleiro (Ex: int tabuleiro[5][5];).
     // Sugestão: Posicione dois navios no tabuleiro, um verticalmente e outro horizontalmente.
