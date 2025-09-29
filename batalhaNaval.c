@@ -30,6 +30,9 @@ int main() {
       }
       printf("\n");
    }
+
+     return 0;
+}
     // Nível Novato - Posicionamento dos Navios
     // Sugestão: Declare uma matriz bidimensional para representar o tabuleiro (Ex: int tabuleiro[5][5];).
     // Sugestão: Posicione dois navios no tabuleiro, um verticalmente e outro horizontalmente.
@@ -61,5 +64,4 @@ int main() {
     // 1 1 1 1 1
     // 0 0 1 0 0
 
-    return 0;
-}
+  
