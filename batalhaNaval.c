@@ -15,6 +15,7 @@ void tabuleiro (int matriz[10][10], int valor) {
    }
 }
 
+
 // VISUALIZAÇÃO DO TABULEIRO INICIANDO - SE DO 0
 void tabuleirogeral (int jogo [10][10]) {
    for (int i = 0; i < 10; i++) {
@@ -41,6 +42,82 @@ void tabuleirogeral (int jogo [10][10]) {
 
 }
 
+// DEFINIÇÃO MATRIZ COM 5 LINHAS E 5 COLUNAS - CONE
+void exibirMatriz(int matriz[5][5]) {
+   for (int i = 0; i < 5; i++) {
+      for (int j = 0; j < 5; j++) {
+         printf("%2d", matriz[i][j]);
+      }
+      printf("\n");
+   }
+}
+// DEFINIÇÃO DE MATRIZ EM FORMATO EM CONE
+void definirCone (int matriz[5][5]) {
+   int cone[5][5] = {
+      {0,0,1,0,0},
+      {0,1,1,1,0},
+      {1,1,1,1,1},
+      {0,0,0,0,0},
+      {0,0,0,0,0}
+   };
+      for (int i = 0; i < 5; i++){
+         for (int j = 0; j < 5; j++) {
+            matriz[i][j] = cone[i][j];
+         }
+   };
+}
+
+// DEFINIÇÃO DA MATRIZ EM 5 LINHAS E 5 COLUNAS - CRUZ
+void cruzMatriz (int matrizCruz[5][5]) {
+   for (int i = 0; i < 5;i++) {
+      for (int j = 0; j < 5; j++) {
+         printf("%2d", matrizCruz[i][j]);
+      }
+      printf("\n");
+   }
+}
+
+// DEFINIÇÃO DE MATRIZ EM FORMATO EM CRUZ
+void definirCruz (int matrizCruz[5][5]) {
+   int cruz[5][5] = {
+      {0,0,1,0,0},
+      {0,0,1,0,0},
+      {1,1,1,1,1},
+      {0,0,1,0,0},
+      {0,0,1,0,0}
+   };
+   for (int i = 0; i < 5; i++) {
+      for (int j = 0; j < 5; j++) {
+         matrizCruz[i][j] = cruz[i][j];
+      }
+   }
+}
+
+void losangoMatriz(int matrizLosango[5][5]) {
+   for (int i = 0; i < 5; i++) {
+      for (int j = 0; j < 5; j++) {
+         printf("%2d", matrizLosango[i][j]);
+      }
+      printf("\n");
+   }
+}
+
+void definirlosango (int matrizLosango[5][5]) {
+   int losango[5][5] = {
+      {0,0,1,0,0},
+      {0,1,1,1,0},
+      {1,1,1,1,1},
+      {0,1,1,1,0},
+      {0,0,1,0,0}
+   };
+
+   for (int i = 0; i < 5; i++) {
+      for (int j = 0; j < 5; j++) {
+         matrizLosango[i][j] = losango[i][j];
+      }
+   }
+}
+
 
 int main() {
 
@@ -53,8 +130,11 @@ int main() {
       // INICIALIZAÇÃO DO JOGO
       printf("#### JOGO BATALHA NAVAL ####\n");
       printf("############################\n");
-      printf("1. Visualizar a tabela.\n");
-      printf("2. Sair do Jogo.\n");
+      printf("1. Visualizar a Tabuleiro.\n");
+      printf("2. Visualizar Matriz em Cone.\n");
+      printf("3. Visualizar Matriz em Cruz.\n");
+      printf("4. Visualizar Matriz em Losango.\n");
+      printf("5. Sair do Jogo.\n");
       printf("############################\n");
       printf("Selecione a opcao desejada: \n");
       scanf("%d", &opcao);
@@ -66,14 +146,33 @@ int main() {
             printf("OPCAO SELECIONADA: VISUALIZAR O TABULEIRO!\n");
 
             int jogo[10][10];
-
-            // CARREGAMENTO DA LÓGICA
             tabuleirogeral(jogo);
-
-            // CARREGAMENTO DA TABULAÇÃO
             tabuleiro(jogo,10);
             break;
          case 2:
+            printf("OPCAO SELECIONADA: VISUALIZAR TABULEIRO EM CONE!\n");
+
+            int matriz [5][5];
+            definirCone(matriz);
+            exibirMatriz(matriz);
+            break;
+         case 3:
+            printf("OPCAO SELECIONADA: VISUALIZAR MATRIZ EM CRUZ !\n");
+
+            int matrizCruz[5][5];
+            definirCruz(matrizCruz);
+            cruzMatriz(matrizCruz);
+            break;
+
+         case 4:
+            printf("OPCAO SELECIONADA: VISUALIZAR MATRIZ EM LOSANGO !\n");
+
+            int matrizLosango[5][5];
+            definirlosango(matrizLosango);
+            losangoMatriz(matrizLosango);
+            break;
+
+         case 5:
             printf("OPCAO SELECIONADA: SAIR DO JOGO!\n");
 
             printf("Voce saiu do jogo!\n");
@@ -82,7 +181,7 @@ int main() {
             printf("Selecione a opcao valida!\n");
       }
 
-   }while (opcao != 2);
+   }while (opcao != 5);
 
 
 return 0;
